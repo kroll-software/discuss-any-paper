@@ -10,7 +10,7 @@ Works locally with open-source models, no API keys needed. Uses #LangChain, so t
 1. Clone this repository
 2. Install the requirements: *pip install -r requirements.txt*
 3. You may also have to install the tesseract OCR package to read PDF-files: *sudo apt install -y tesseract-ocr*
-4. Download a ggml-model, e.g. [gpt4-x-vicuna-13B.ggml.q4_2.bin](https://huggingface.co/TheBloke/gpt4-x-vicuna-13B-GGML)
+4. Download a ggml-model, e.g. [*gpt4-x-vicuna-13B.ggml.q4_2.bin*](https://huggingface.co/TheBloke/gpt4-x-vicuna-13B-GGML)
 5. Copy the file *.env.example* to *.env*
 6. Edit the model-path and other preferences in the file *.env*
 7. Copy one ore more documents (papers or books, *.pdf and *.txt files are supported) to the ./docs folder
