@@ -1,0 +1,11 @@
+argparse==1.4.0
+chromadb==0.3.21
+pre-commit>=3.2.0
+python-dotenv==1.0.0
+langchain>=0.0.168
+InstructorEmbedding>=1.0.0
+unstructured>=0.6.6
+tabulate>=0.9.0
+pdf2image>=1.16.3
+pytesseract>=0.3.10
+llama-cpp-python==0.1.43
