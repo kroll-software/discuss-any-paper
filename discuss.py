@@ -100,22 +100,26 @@ text_splitter = RecursiveCharacterTextSplitter(
     length_function = len,    
 )
 
-source_files = glob.glob('./docs/*.*')
-docs = []
-for f in source_files:
-    ext = pathlib.Path(f).suffix.lower()
-    pages = []
-    if ext == '.txt':
-        loader = UnstructuredFileLoader(f)
-        pages = loader.load_and_split(text_splitter=text_splitter)        
-    elif ext == '.pdf':
-        loader = UnstructuredPDFLoader(f)
-        pages = loader.load_and_split(text_splitter=text_splitter)
-    for page in pages:
-        docs.append(page)
+def load_docs():
+    print("loading documents ..")
+    global source_files
+    source_files = glob.glob('./docs/*.*')
+    docs = []
+    for f in source_files:
+        loader = None
+        ext = pathlib.Path(f).suffix.lower()
+        if ext == '.txt':
+            loader = UnstructuredFileLoader(f)
+        elif ext == '.pdf':
+            loader = UnstructuredPDFLoader(f)
+        if loader != None:
+            pages = loader.load_and_split(text_splitter=text_splitter)
+            docs.extend(pages)
+    global paper_db
+    print("indexing documents ..")
+    paper_db = Chroma.from_documents(docs, embeddings)
 
-paper_db = Chroma.from_documents(docs, embeddings)
-
+load_docs()
 
 print("\033[94m\033[1m" + "\n*****OBJECTIVE*****\n" + "\033[0m\033[0m")
 print(f"{OBJECTIVE}")

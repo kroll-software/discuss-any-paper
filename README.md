@@ -2,7 +2,7 @@
 
 Let your LLM discuss any paper or book. Great for brainstorming ideas and to get a glance.
 
-Works locally with open-source models, no API keys needed. Uses #LangChain, so that each component could be easily replaced. Runs on CPU with most GGML models.
+Works locally with open-source models, no API keys needed. Uses [LangChain](https://github.com/hwchase17/langchain), so that each component could be easily replaced. Runs on CPU with most GGML models.
 </br>
 
 # Installation:
